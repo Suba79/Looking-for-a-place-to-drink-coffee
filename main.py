@@ -78,8 +78,6 @@ def main():
         print("Не удалось определить координаты.")
         return
 
-    print(f"\nВаши координаты: {user_coords}\n")
-
     shops_with_distances = []
     for shop in coffee_shops:
         try:
@@ -104,15 +102,6 @@ def main():
         return
 
     nearest_shops = sorted(shops_with_distances, key=lambda x: x['distance'])[:5]
-
-    print("\nБлижайшие кофейни:")
-    for i, shop in enumerate(nearest_shops, 1):
-        print(f"\n#{i}: {shop['name']}")
-        pprint({
-            'Адрес': shop['address'],
-            'Расстояние (км)': round(shop['distance'], 2),
-            'Координаты': shop['coordinates']
-        })
 
     generate_coffee_map(user_coords, nearest_shops)
 
