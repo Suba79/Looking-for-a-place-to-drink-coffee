@@ -7,10 +7,6 @@ from pprint import pprint
 import folium
 
 
-load_dotenv()
-apikey = os.getenv("YANDEX_GEOCODE_API_KEY")
-
-
 def fetch_coordinates(apikey, address):
     """Получаем координаты адреса через Yandex API."""
     base_url = "https://geocode-maps.yandex.ru/1.x"
@@ -58,6 +54,10 @@ def generate_coffee_map(user_coords, shops):
 
 
 def main():
+    
+    load_dotenv()
+    apikey = os.getenv("YANDEX_GEOCODE_API_KEY")
+    
     try:
         with open("coffee.json", "r", encoding="cp1251") as file:
             coffee_shops = json.load(file)
