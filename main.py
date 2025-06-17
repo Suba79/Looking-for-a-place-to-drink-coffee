@@ -6,6 +6,7 @@ import os
 from pprint import pprint
 import folium
 
+
 load_dotenv()
 apikey = os.getenv("YANDEX_GEOCODE_API_KEY")
 
